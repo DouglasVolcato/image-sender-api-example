@@ -1,7 +1,13 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const { image } = require("./src/base64-image");
-const port = 3000;
+
+require("dotenv").config();
+
+const port = process.env.PORT || 3000;
+
+app.use(cors());
 
 app.get("/", async (req, res) => {
   try {
